@@ -1,0 +1,47 @@
+import json
+from datetime import datetime
+
+def generate_changelog(manifest_path="manifest.json"):
+    with open(manifest_path, "r") as f:
+        data = json.load(f)
+
+    manifest = data["claude_manifest"]
+    series = manifest["series"]
+    releases = manifest["releases"]
+
+    lines = []
+    lines.append(f"# CHANGELOG — {series}\n")
+    lines.append(f"Generated: {datetime.utcnow().isoformat()} UTC\n")
+    lines.append("---\n")
+
+    for r in releases:
+        version = r["version"]
+        codename = r["codename"]
+        window = r["release_window"]
+        status = r["status"]
+        support = r["support"]
+        summary = r["summary"]
+        notes = r.get("notes", [])
+
+        lines.append(f"## {version} — **{codename}**")
+        lines.append(f"**Release Window:** {window}")
+        lines.append(f"**Status:** {status}")
+        lines.append(f"**Support:** {support}")
+        lines.append("")
+        lines.append("### Summary")
+        lines.append(f"- {summary}")
+        lines.append("")
+        if notes:
+            lines.append("### Notes")
+            for n in notes:
+                lines.append(f"- {n}")
+            lines.append("")
+        lines.append("---\n")
+
+    return "\n".join(lines)
+
+if __name__ == "__main__":
+    changelog = generate_changelog()
+    with open("CHANGELOG.md", "w") as f:
+        f.write(changelog)
+    print("CHANGELOG.md generated.")
