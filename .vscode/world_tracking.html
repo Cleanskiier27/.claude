@@ -92,7 +92,7 @@
             <span class="value">12.4% (RTX_4090)</span>
         </div>
         <div class="telemetry-row">
-            <span class="label">SAT_LINK:</span>
+            <span class="label">GROUND_LINK:</span>
             <span class="value" style="color: var(--cyan)">ESTABLISHED</span>
         </div>
         <div style="margin-top: 15px; height: 2px; background: var(--nvidia); width: 100%;"></div>
@@ -101,16 +101,16 @@
     <div class="hud routing-overlay">
         <div class="route-step">
             <div style="color: var(--nvidia); font-weight: bold; margin-bottom: 4px;">NEXT WAYPOINT: GATES_HQ</div>
-            <div style="opacity: 0.6;">Calculating optimal neural path via satellite grid...</div>
+            <div style="opacity: 0.6;">Calculating optimal neural path via ground sensor grid...</div>
         </div>
         <div class="route-step" style="opacity: 0.5;">
-            <div style="margin-bottom: 4px;">SUB_ROUTING: LUNAR_RELAY_01</div>
+            <div style="margin-bottom: 4px;">SUB_ROUTING: GROUND_RELAY_01</div>
             <div>Estimated latency: 12ms</div>
         </div>
     </div>
 
     <script>
-        // Initialize Map (Google Maps Satellite Style)
+        // Initialize Map (Earth surface style)
         const map = L.map('map', {
             center: [51.505, -0.09],
             zoom: 13,
