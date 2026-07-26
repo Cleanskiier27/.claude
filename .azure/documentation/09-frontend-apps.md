@@ -114,7 +114,7 @@ real-time-overlay/
 │   │   ├── AvatarWorld.jsx   (3D avatars)
 │   │   ├── CameraFeed.jsx    (Live camera)
 │   │   ├── ConnectionGraph.jsx (Network graph)
-│   │   └── SatelliteMap.jsx  (Earth-surface map view)
+│   │   └── SatelliteMap.jsx  (Map view)
 ├── public/                   (Assets)
 ├── package.json              (Dependencies)
 ├── vite.config.js            (Build config)
@@ -154,7 +154,7 @@ Features:
   - Real-time updates
 ```
 
-#### SatelliteMap.jsx (Earth-Based Mapping)
+#### SatelliteMap.jsx
 ```javascript
 Purpose: Geographic mapping
 Features:
